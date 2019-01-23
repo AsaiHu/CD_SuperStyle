@@ -1,0 +1,104 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterForm.Master.cs"
+    Inherits="WebApp.Pages.MasterForm" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>网站信息发布系统</title>
+    <link rel="stylesheet" type="text/css" href="/Scripts/easyui.1.5.1/themes/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="/Scripts/easyui.1.5.1/themes/icon.css" />
+    <style type="text/css">
+        body
+        {
+            margin: 0px auto;
+            width: 100%;
+            font-size: 10pt;
+            font-weight: normal;
+            font-family: 微软雅黑, Arial, Helvetica, sans-serif;
+            font-weight: normal;
+            text-decoration: none;
+            -webkit-text-size-adjust: none;
+            background-color: #f4f4f4;
+            overflow: hidden;
+        }
+    </style>
+
+    <script type="text/javascript" src="/Scripts/easyui.1.5.1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="/Scripts/easyui.1.5.1/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="/Scripts/easyui.1.5.1/locale/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="/Scripts/EasyUI.js"></script>
+    <script type="text/javascript" src="/Scripts/ExternFunc.js"></script>
+    <script language="javascript" type="text/javascript">
+        var ticket = getQueryString("Ticket");
+
+        var success_code = "<%=(int)DAL.Enum_StatusCode.Success %>";
+        var success_name = "<%=DAL.Util.GetDisplayName(DAL.Enum_StatusCode.Success) %>";
+        var fail_code = "<%=(int)DAL.Enum_StatusCode.Fail %>";
+        var fail_name = "<%=DAL.Util.GetDisplayName(DAL.Enum_StatusCode.Fail) %>";
+
+        var none = "<%=(int)DAL.Enum_Adapter.None %>";
+        var treegrid = "<%=(int)DAL.Enum_Adapter.TreeGrid %>";
+        var combotree = "<%=(int)DAL.Enum_Adapter.ComboTree %>";
+        var datalist = "<%=(int)DAL.Enum_Adapter.DataList %>";
+        var tree = "<%=(int)DAL.Enum_Adapter.Tree %>";
+        var combobox = "<%=(int)DAL.Enum_Adapter.Combobox %>";
+
+        var id = -1;
+        var page_size = 10;
+        var page_number = 1;
+       
+        var ClassCode = getQueryString("ClassCode");
+
+        var classId = -1;
+        function get_class() {
+            var url = "/Api/Class/GetByCode?classCode=" + ClassCode;
+            $.ajax({
+                type: 'POST',
+                dataType:'json',
+                url: url,
+                data: null,
+                beforeSend: function (XHR) {
+                    loading();
+                    XHR.setRequestHeader('Ticket', ticket);
+                },
+                success: function (json) {
+                    var code = json.code;
+                    if (code == success_code) {
+                        var data = json.data;
+                        classId = data.ID;
+                        query_data();
+                    }
+                    else {
+                        var message = json.message;
+                        $.messager.alert('提示信息', message, 'error');
+
+                    }
+                },
+                error: function (e) {
+                },
+                complete: function () {
+                    loaded();
+                }
+            });
+        }
+
+    </script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+   
+    <div id="loading-mask" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; background: #D2E0F2; -moz-opacity: 0.7; opacity: .70; z-index: 20000;">
+        <div id="pageloading" style="position: absolute; top: 50%; left: 50%; margin: -120px 0px 0px -120px; text-align: center; border: 2px solid #8DB2E3; width: 200px; height: 40px; font-size: 14px; padding: 10px; font-weight: bold; background: #fff; color: #15428B;">
+            <img src="../../Images/loading.gif" align="absmiddle" alt="" />
+            正在加载中,请稍候...
+        </div>
+    </div>
+    <form id="form1" runat="server"></form>
+    <div id="toolbar" runat="server" style="float: left;"></div>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    </asp:ContentPlaceHolder>
+</body>
+</html>

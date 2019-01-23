@@ -1,0 +1,106 @@
+﻿
+.left
+{
+    float:left;	
+    width:60%;
+}
+.right
+{
+    float:left;
+    width:250px;
+    margin-left:10px;
+}
+.title
+{
+    border-bottom:solid 1px #ccc;	
+}
+
+
+.photocontainer
+{
+	margin-top:10px;
+	background:url(/Scripts/ImageCut/images/bg_180.gif) no-repeat center top;   
+	padding:7px 15px 15px 7px;                                        
+}  
+.uploadtooltip
+{
+	margin-top:10px;
+	color: #555;	
+	line-height:150%;
+}
+.uploaddiv
+{
+	margin-top:5px;
+}
+input
+{
+	padding:3px;  
+}
+#Step2Container
+{
+/*display:none;	*/
+}
+#Canvas
+{
+    position: relative;
+    width:284px;
+    height:266px;
+    border:2px solid #888888;
+    overflow:hidden;	          
+    cursor:pointer;	
+}
+.smallbig
+{
+    cursor:pointer;	
+}
+ #bar
+{
+	 width: 211px;
+     height: 18px;
+     background-image: url(/Scripts/ImageCut/images/track.gif);
+     background-repeat: no-repeat;
+     position: relative;
+ }
+.child
+{
+    width: 11px;
+    height: 16px;
+    background-image: url(/Scripts/ImageCut/images/grip.gif);
+    background-repeat: no-repeat;
+    left: 0;top:2px;
+    position: absolute;
+    left:100px;
+    cursor:move
+}
+.imagePhoto
+{
+	border-width:0px;
+	position:relative;
+}
+#IconContainer
+{
+	position:relative;    
+	left:0px;
+	top:-180px;    
+	      	          	
+} 
+
+ 
+#IconContainer img
+{
+	FILTER:alpha(opacity=30);
+	opacity:0.3;    
+	background-color:#ccc;	   
+}
+#ImageDragContainer 
+{
+	border: 1px solid #ccc;
+    width: 180px;
+    height: 180px;
+    cursor: pointer;
+    position: relative;
+    top: 43px; 
+    left: 52px	;
+    overflow: hidden;
+    z-index:1;
+}   

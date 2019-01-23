@@ -1,0 +1,463 @@
+@font-face{
+    font-family: 'Ubuntu-Title';
+    src:url('../font/Ubuntu-Title.ttf');
+}
+
+body{
+    max-width: 1920px;
+    margin:0 auto;
+    width:100%;
+    background:#f86b96;
+    font-family: 'Ubuntu-Title';
+    overflow-x:hidden;
+}
+.c1{
+    overflow:hidden;
+    width:100%;
+    height:100vh;
+}
+.container{
+    float:left;
+    position: relative;
+}
+.cartoon_center{
+    width:1170px;
+    margin:0 auto;
+    position: relative;
+}
+.logo {
+    background: url('../images/logo.png') no-repeat;
+    background-size: 100% auto;
+    font-size: 0;
+}
+.outerCenter{
+    width:1440px;
+    margin:0 auto;
+    padding-top:50px;
+}
+.center_container{
+    width:1170px;
+    margin:0 auto;
+    overflow:hidden;
+    padding-top:50px;
+}
+.planeBg{
+    background:url('../images/plane.png') no-repeat;
+    background-position:80% 0;
+    padding-top:90px;
+    padding-bottom:115px;
+    width:1440px;
+    margin:0 auto;
+    opacity: 0;
+    transition:all 0.3s ease-out;
+
+}
+.speed{
+    transition:all 0.5s ease;
+}
+.barSpeed{
+    transition:all 0.5s ease;
+}
+.arial_font{
+    font-family: Arial !important;
+}
+/**header**/
+.head_banner {
+    width: 100%;
+    position: relative;
+}
+header{
+    width:1170px;
+    margin:0 auto;
+    padding:35px 0;
+    /* overflow: hidden; */
+    
+}
+.head_nav {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+header .logo{
+    width:182px;
+    height:182px;
+    display: block;
+    float: left;
+}
+.banner_img {
+    width: 100%;
+    display: block;
+}
+.header_nav {
+    float: right;
+}
+.header_nav li {
+    float:left;
+    position: relative;
+}
+.header_nav li span{
+    color:#ffffff;
+    font-size:30px;
+    line-height: 182px;
+    border-radius: 6px;
+    transition:all 0.3s ease;
+    padding:10px 25px;
+}
+.header_nav li span:hover {
+    background:#ffeb00;
+    color:#f24e80;
+    box-shadow:#615f5f 4px 4px 13px -3px
+
+}
+.extra_list{
+    display: none;
+    position: absolute;
+    left:0;
+    top:130px;
+}
+.extra_list li{
+    float:initial;
+    width:100%;
+    box-sizing: border-box;
+    margin-bottom:6px;
+    /* padding:25px 10px 0 25px; */
+}
+.extra_list li span{
+    line-height:40px;
+    font-size:26px;
+    background:#ffeb00;
+    color:#f24e80;
+    padding:6px 25px;
+    box-shadow:#615f5f 4px 4px 13px -3px
+
+}
+/**contact**/
+.contact_details{
+    width:510px;
+    margin-bottom:350px;
+    opacity: 0;
+    position: relative;
+    left:-80px;
+    transition: all 0.5s ease-out;
+}
+.contact_details .details_title {
+    color:#ffeb00;
+    font-size:50px;
+    line-height:60px;
+}
+.contact_details div{
+    font-size:20px;
+    color:#fefefe;
+    font-family: Arial !important;
+    margin-top:10px;
+    overflow:hidden;
+}
+.contact_details div span {
+    float: left;
+    display:block;
+    width:150px;
+    line-height:28px;
+}
+.contact_details div i{
+    display:block;
+    float:left;
+    width:360px;
+    line-height:28px;
+}
+.contact_post {
+    width:898px;
+    transform-origin:50% 50%;
+    transition: all 0.8s ease-out;
+    transform: rotateY(90deg);
+}
+.contact_post p{
+    font-size:20px;
+    color:#fffdfd;
+    line-height:26px;
+}
+.contact_post form{
+    margin-top:15px;
+}
+.contact_post input {
+    box-sizing: border-box;
+    border-radius: 2px;
+    border:2px solid #ffeb00;
+    width:517px;
+    height:45px;
+    background:transparent;
+    outline: none;
+    margin-bottom:13px;
+    font-size:20px;
+    color:#ffffff;
+    padding-left:18px;
+}
+.contact_post textarea{
+    resize: none;
+    box-sizing: border-box;
+    border-radius: 2px;
+    border:2px solid #ffeb00;
+    width:898px;
+    height:231px;
+    background:transparent;
+    outline: none;
+    font-size:20px;
+    color:#ffffff;
+    padding:10px 0 0 18px;
+    margin-bottom:13px;
+}
+.contact_post input::-webkit-input-placeholder {
+    color:#ffffff;
+}
+
+.contact_post input:-moz-placeholder {
+    color: #ffffff;
+}
+.contact_post input::-moz-placeholder {
+    color: #ffffff;
+}
+.contact_post input:-ms-input-placeholder {
+    color: #ffffff;
+}
+.contact_post textarea::-webkit-input-placeholder {
+    color: #ffffff;
+}
+.contact_post textarea:-moz-placeholder {
+    color: #ffffff;
+}
+.contact_post textarea::-moz-placeholder {
+    color: #ffffff;
+}
+.contact_post textarea:-ms-input-placeholder {
+    color: #ffffff;
+}
+.contact_post button{
+    border:0;
+    color:#f34e80;
+    font-size:25px;
+    background:#ffeb00;
+    border-radius:3px;
+    cursor: pointer;
+    padding:10px 10px;
+    float: right;
+}
+
+/**cartoon ip**/
+.ip_header{
+    width:1170px;
+    margin:0 auto;
+}
+.ip_header img{
+    width:100%;
+    height:auto;
+    position: relative;
+    top:-110px;
+}
+.ip_header p{
+    font-size:110px;
+    color:#ffffff;
+}
+.cartoon_product .cartoon_images {
+    float:left;
+    width:518px;
+    height:495px;
+    box-sizing: border-box;
+    padding-left:23px;
+    /* overflow:hidden; */
+}
+
+.bigger_banner{
+    float:left;
+    position: relative;
+    opacity:0;
+}
+.cartoon_product .cartoon_images img {
+    float:left;
+    width:233px;
+    height:234px;
+    display: block;
+    margin-bottom:27px;
+    position: relative;
+    left:-40px;
+    opacity:0;
+}
+.per_logo{
+    position: relative;
+    opacity:0;
+    left:-80px;
+}
+.cartoon_product .cartoon_images img:hover {
+    transition: all 0.2s ease !important;
+    box-shadow: #000 0px 1px 32px -3px;
+}
+.cartoon_center {
+    margin-bottom: 50px;
+}
+.cartoon_product .cartoon_logo img{
+    margin-left:23px;
+    margin-bottom:66px;
+}
+.cartoon_product a:nth-child(2) img {
+    margin-left:29px;
+}
+.cartoon_product a:nth-child(4) img {
+    margin-left: 29px;
+}
+.banlie{
+    height:813px;
+}
+.banlie .bigger_banner{
+    position: absolute;
+    top:0;
+    right:0;
+}
+.hello_kitty{
+    height:745px;
+    margin-bottom:120px;
+}
+.hello_kitty .bigger_banner{
+    position: absolute;
+    bottom:0;
+    right:50px;
+}
+
+.smurfs{
+    margin-bottom:150px;
+}
+.smurfs .bigger_banner{
+    position: absolute;
+    right:-55px;
+    bottom:35px;
+}
+.mickey{
+    height:840px;
+    box-sizing: border-box;
+    padding-top:100px;
+    margin-bottom:90px;
+}
+.mickey .bigger_banner{
+    position: absolute;
+    bottom:0;
+    right:-41px;
+}
+.pig{
+    height:720px;
+    margin-bottom:120px;
+}
+.pig .bigger_banner{
+    position: absolute;
+    bottom:0;
+    right: -46px;
+}
+.marvel .cartoon_product .cartoon_images,
+.pokemon .cartoon_product .cartoon_images {
+    width:257px;
+}
+.marvel .cartoon_product a:nth-child(2) img,
+.pokemon .cartoon_product a:nth-child(2) img {
+    margin-left: 0;
+}
+.pokemon{
+    height:915px;
+    box-sizing: border-box;
+    padding-top:105px;
+    margin-bottom:210px;
+}
+.pokemon .bigger_banner{
+    position: absolute;
+    right:-155px;
+    bottom:0;
+}
+.minions{
+    margin-bottom:220px;
+}
+.minions .bigger_banner{
+    position: absolute;
+    right:-110px;
+    bottom:0;
+}
+.frozen{
+    height:830px;
+    margin-bottom:130px;
+}
+.frozen .bigger_banner{
+    position: absolute;
+    right:-150px;
+    bottom:0;
+}
+.marvel{
+    height:814px;
+    margin-bottom:150px;
+}
+.marvel .bigger_banner{
+    position: absolute;
+    right:0;
+    bottom:0;
+}
+.car{
+    height:722px;
+    margin-bottom:170px;
+}
+.car .bigger_banner{
+    position: absolute;
+    right:-110px;
+    bottom:0;
+}
+
+/**footer**/
+footer{
+    width:100%;
+    border-top:1px solid #ffeb00;
+    padding-top:105px;
+    font-family: Arial !important;
+}
+footer .footer_center{
+    width:1170px;
+    margin:0 auto;
+    overflow:hidden;
+}
+footer .footer_center .footer_list {
+    float:left;
+    margin-right:135px;
+}
+footer .footer_center .list_title {
+    font-size:35px;
+    color:#ffed15;
+    font-family: 'Ubuntu-Title';
+}
+footer ul{
+    margin-top:35px;
+}
+footer ul li,
+footer ul li a{
+    font-size:16px;
+    color:#ffffff;
+    margin-bottom:13px;
+}
+footer .figures {
+    display:block;
+    float: right;
+    width:336px;
+    height:205px;
+    background:url('../images/figures.png') no-repeat;
+    background-size:100% auto;
+    margin-top:40px;
+}
+footer .footer_copy{
+    width:1170px;
+    margin:0 auto;
+    padding:30px 0 80px 0;
+    font-size:15px;
+    color:#ffffff;
+}
+.toTop{
+    position: absolute;
+    bottom:8%;
+    right:3%;
+    display:block;
+    width:34px;
+    height:69px;
+    background:url('../images/top.png') no-repeat;
+    background-size:100% auto;
+    cursor: pointer;
+}

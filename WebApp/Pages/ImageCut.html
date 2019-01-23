@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>图片剪裁_网站信息发布系统</title>
+    <style type="text/css">
+        body
+        {
+            margin: 0px auto;
+            width: 100%;
+            font-size: 10pt;
+            font-weight: normal;
+            font-family: 微软雅黑, Arial, Helvetica, sans-serif;
+            font-weight: normal;
+            text-decoration: none;
+            -webkit-text-size-adjust: none;
+            float: left;
+        }
+    </style>
+    <link href="/Scripts/ImageCut/images/style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/Scripts/ImageCut/jquery1.2.6.pack.js"></script>
+    <script type="text/javascript" src="/Scripts/ImageCut/ui.core.packed.js"></script>
+    <script type="text/javascript" src="/Scripts/ImageCut/ui.draggable.packed.js"></script>
+    <script type="text/javascript" src="/Scripts/ImageCut/main.js"></script>
+    <script type="text/javascript" src="/Scripts/ExternFunc.js"></script>
+    <script type="text/javascript">
+        var loading = false;
+        var src = "";
+        var cut_src = "";
+        var ticket = getQueryString("ticket");
+        $(function () {
+            loading = true;
+            src = getQueryString("src");
+            cut_src = getQueryString("cut_src");
+            if (cut_src != null && cut_src != "") {
+                $("#imgphoto").attr("src", cut_src);
+            }
+
+            $("#ImageDrag").attr("src", src);
+            $("#ImageIcon").attr("src", src);
+
+            //$("#txt_width").val("1000");
+            //$("#txt_height").val("395");
+            //$("#txt_DropWidth").val("1000");
+            //$("#txt_DropHeight").val("395");
+            loading = false;
+
+        });
+
+
+        function do_submit() {
+            var entity = new Object();
+            entity.Src = src;
+            entity.ImageWidth = $("#txt_width").val();
+            entity.ImageHeight = $("#txt_height").val();
+            entity.CutTop = $("#txt_top").val();
+            entity.CutLeft = $("#txt_left").val();
+            entity.DropWidth = $("#txt_DropWidth").val();
+            entity.DropHeight = $("#txt_DropHeight").val();
+            entity.Zoom = $("#txt_Zoom").val();
+            var data = String.toSerialize(entity);
+            alert(data);
+            $.ajax({
+                type: 'POST',
+                url: "/Api/File/Cut",
+                dataType: "json",
+                contentType: "application/json; charset=UTF-8",
+                cache: false,
+                data: data,
+                beforeSend: function (XHR) {
+                    XHR.setRequestHeader('Ticket', ticket);
+                },
+                success: function (res) {
+                    var code = res.code;
+                    if (code == 0) {
+                        cut_src = res.data;
+                        window.parent.$("#cut_src").val(cut_src);
+                        $("#imgphoto").attr("src", res.data);
+                    }
+                    else {
+                        var message = res.message;
+                        alert(message);
+                        // $.messager.alert('提示信息', message, 'error');
+                    }
+                }
+
+            });
+        }
+
+    </script>
+</head>
+<body>
+    <table cellpadding="0" cellspacing="0" style="width: 100%; margin: 1px;">
+        <tr>
+            <td style="width: 50%;">
+                <div class="left">
+                    <div id="Step2Container" style="text-align: left;">
+                        <div id="Canvas" class="uploaddiv">
+                            <div id="ImageDragContainer">
+                                <img id="ImageDrag" src="/Scripts/ImageCut/images/blank.jpg" class="imagePhoto" title="" />
+                            </div>
+                            <div id="IconContainer">
+                                <img id="ImageIcon" src="/Scripts/ImageCut/images/blank.jpg" class="imagePhoto" title="" />
+                            </div>
+                        </div>
+                        <div class="uploaddiv" style="margin-left: 15px">
+                            <table cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td id="Min">
+                                        <img alt="缩小" src="/Scripts/ImageCut/images/_c.gif" onmouseover="this.src='/Scripts/ImageCut/images/_c.gif';" onmouseout="this.src='/Scripts/ImageCut/images/_c.gif';" id="moresmall" class="smallbig" />
+                                    </td>
+                                    <td>
+                                        <div id="bar">
+                                            <div class="child">
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td id="Max">
+                                        <img alt="放大" src="/Scripts/ImageCut/images/c.gif" onmouseover="this.src='/Scripts/ImageCut/images/c.gif';" onmouseout="this.src='/Scripts/ImageCut/images/c.gif';" id="morebig" class="smallbig" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div>&nbsp;</div>
+                    </div>
+                </div>
+            </td>
+            <td style="width: 50%; vertical-align: top;">
+                <div class="right">
+                    <div id="Step1Container">
+                        <div id="uploadcontainer">
+                            <div class="uploadtooltip">请选择新的照片文件，文件需小于MB</div>
+                        </div>
+                    </div>
+                    <div id="CurruntPicContainer" style="margin-top: 10px">
+                        <div class="title"><b>当前图片</b></div>
+                        <div class="photocontainer" style="text-align: center">
+                            <img id="imgphoto" src="/Scripts/ImageCut/images/man.GIF" width="180" height="180" />
+                        </div>
+                    </div>
+                    <div class="uploaddiv" style="margin-left: 90px">
+
+                        <input id="btn_submit" type="button" value="立即裁剪" onclick="do_submit();" />
+                    </div>
+                </div>
+                <div style="display: none">
+                    图片实际宽度：
+                    <input id="txt_width" type="hidden" value="249" /><br />
+                    图片实际高度：
+                    <input id="txt_height" type="hidden" value="249" /><br />
+                    距离顶部：
+                    <input id="txt_top" type="hidden" value="0" /><br />
+                    距离左边：
+                    <input id="txt_left" type="hidden" value="0" /><br />
+                    截取框的宽：
+                    <input id="txt_DropWidth" type="hidden" value="249" /><br />
+                    截取框的高：
+                    <input id="txt_DropHeight" type="hidden" value="249" /><br />
+                    放大倍数：
+                    <input id="txt_Zoom" type="hidden" />
+                </div>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

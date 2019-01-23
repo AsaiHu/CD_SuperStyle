@@ -1,0 +1,168 @@
+*
+{
+    font-size: 12px;
+    font-family: 'Tahoma' , 'Verdana' , '微软雅黑' , '新宋体';
+}
+body
+{
+    margin: 0px auto;
+    width: 100%;
+    font-size: 10pt;
+    font-weight: normal;
+    font-family: 微软雅黑, Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    text-decoration: none;
+    -webkit-text-size-adjust: none;
+}
+.logo
+{
+    width:100%;
+    text-align:center;
+    position: absolute;
+    height:45px;
+}
+.inhalt
+{
+    border-style: none;
+    border-color: inherit;
+    border-width: 0px;
+    height: 365px;
+    width: 100%;
+    position: absolute;
+    background-color:#f0f0f0;
+    text-align:center;
+}
+
+a
+{
+    color: Black;
+    text-decoration: none;
+}
+a:hover
+{
+    color: Red;
+    text-decoration: underline;
+}
+.textbox03
+{
+    border: #878787 1px solid;
+    padding: 4px 3px;
+    font: Verdana, Geneva, sans-serif,宋体;
+    line-height: 14px;
+    background-color: #fff;
+    height: auto;
+    font-size: 14px;
+    font-weight: bold;
+    width: 190px;
+}
+
+.txt01
+{
+    font: Verdana, Geneva, sans-serif,宋体;
+    padding: 3px 2px 2px 2px;
+    border-width: 1px;
+    border-color: #ddd;
+    color: #000;
+}
+.txt
+{
+    border: #878787 1px solid;
+    padding: 4px 3px;
+    font: Verdana, Geneva, sans-serif,宋体;
+    line-height: 14px;
+    background-color: #fff;
+    height: auto;
+    font-size: 14px;
+}
+.footer
+{
+    text-align: center;
+    color: #15428B;
+    margin: 0px;
+    padding: 0px;
+    line-height: 20px;
+    font-weight: bold;
+}
+
+.head a
+{
+    color: White;
+    text-decoration: underline;
+}
+
+.navlist
+{
+    list-style-type: none;
+    margin: 0px;
+    padding: 10px;
+}
+.navlist li
+{
+    padding: 0px;
+}
+.navlist li a
+{
+    line-height: 24px;
+}
+.navlist li div
+{
+    margin: 2px 0px;
+    padding-left: 10px;
+    padding-top: 2px;
+    border: 1px dashed #ffffff;
+}
+.navlist li div.hover
+{
+    border: 1px dashed #99BBE8;
+    background: #E0ECFF;
+    cursor: pointer;
+}
+.navlist li div.hover a
+{
+    color: #416AA3;
+}
+.navlist li div.selected
+{
+    border: 1px solid #99BBE8;
+    background: #E0ECFF;
+    cursor: default;
+}
+.navlist li div.selected a
+{
+    color: #416AA3;
+    font-weight: bold;
+}
+
+
+.third_ul
+{
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    display: none;
+}
+.third_ul li
+{
+    padding-left: 20px;
+}
+
+.qy_top2bg
+{
+    background-image: url(/Images/bg_top.jpg);
+    background-position: 0px 0px;
+    background-repeat: repeat-x;
+}
+
+
+.qy_topk2px
+{
+    color: #000000;
+    font-family: Arial;
+}
+
+
+.qy_date
+{
+    color: #000000;
+    font-family: Arial;
+}

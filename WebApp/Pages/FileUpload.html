@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>文件上传_网站信息发布系统</title>
+    <link rel="stylesheet" type="text/css" href="../Scripts/easyui.1.5.1/themes/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="../Scripts/easyui.1.5.1/themes/icon.css" />
+    <script type="text/javascript" src="../Scripts/easyui.1.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../Scripts/easyui.1.5.1/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../Scripts/easyui.1.5.1/locale/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../Scripts/easyui.1.5.1/jquery.form.js"></script>
+    <script type="text/javascript" src="../Scripts/EasyUI.js"></script>
+    <script type="text/javascript" src="../Scripts/ExternFunc.js"></script>
+    <style>
+        * {
+            font-size: 12px;
+            font-family: 'Tahoma', 'Verdana', '微软雅黑', '新宋体';
+        }
+
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+    </style>
+</head>
+<body>
+    <form id='ff' class="easyui-form" method="post" enctype="multipart/form-data" action="">
+        <div id="title" style="margin-bottom: 5px; margin-top: 5px;"></div>
+        <input class="easyui-filebox" label="" labelposition="top" style="width: 100%; height: 30px;"
+            id="fileSrc" data-options="buttonText: '浏览...',onChange:action_upload" />
+    </form>
+    <script type="text/javascript">
+        var loading = false;
+        var required_clientId = "required";
+        var src_clientId = "src";
+        var ticket = getQueryString("ticket");
+        $(function () {
+            loading = true;
+
+            var _required_clientId = getQueryString("required_clientId");
+            if (_required_clientId != null) required_clientId = _required_clientId;
+
+            var _src_clientId = getQueryString("src_clientId");
+            if (_src_clientId != null) src_clientId = _src_clientId;
+
+            var require = getQueryString("require");
+            if (require == 1) {
+                $("#fileSrc").filebox({
+                    required: true
+                });
+            }
+            window.parent.$("#" + required_clientId).val(require);
+
+            var title = getQueryString("title");
+            $('#title').html(title + ":");
+
+            var fileType = getQueryString("fileType");
+            if (fileType == null) {
+                $("#fileSrc").filebox({
+                    accept: 'image/*'
+                });
+            }
+            else {
+                $("#fileSrc").filebox({
+                    accept: '*/*'
+                });
+            }
+
+            var src = getQueryString("src");
+            if (src != null && src != "")
+                window.parent.$("#" + src_clientId).val(src);
+            $("#fileSrc").textbox("setValue", src);
+            loading = false;
+        })
+
+        function action_upload() {
+            if (loading) return;
+
+            try{
+                var formData = new FormData($("#ff")[0]);
+                //调用apicontroller后台action方法，将form数据传递给后台处理。contentType必须设置为false,否则chrome和firefox不兼容
+                $.ajax({
+                    url: "/Api/File/Upload",
+                    type: 'POST',
+                    data: formData,
+                    async: false,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    beforeSend: function (XHR) {
+                        XHR.setRequestHeader('Ticket', ticket);
+                    },
+                    success: function (res) {
+                        var json = JSON.parse(res);
+                        var code = json.code;
+                        if (code == 0) {
+                            window.parent.$("#" + src_clientId).val(json.data);
+                            console.log(window.parent.$("#src").val());
+                        }
+                        else {
+                            var message = json.message;
+                            alert(message);
+                        }
+                    },
+                    error: function (data) {
+                        alert(data.msg);
+                    }
+                });
+            }
+            catch (e) {
+                //开始ajax操作  
+                $("#ff").ajaxSubmit({
+                    type: "POST",//提交类型  
+                    dataType: "json",//返回结果格式  
+                    url: "/Api/File/Upload",//请求地址  
+                    data: null,// { "action": "TemporaryImage" },//请求数据  
+                    async: true,
+                    beforeSend: function (XHR) {
+                        XHR.setRequestHeader('Ticket', ticket);
+                    },
+                    success: function (res) {//请求成功后的函数  
+                        var code = res.code;
+                        if (code == 0) {
+                            upload_src = res.data;
+                            //$("#appIcon").filebox("setValue", upload_src);
+
+                            window.parent.$("#hidSrc").val(res.data);
+                            //console.log(window.parent.$("#hidSrc").val());
+                        }
+                        else {
+                            var message = res.message;
+                            alert(message);
+                        }
+                    },
+                    error: function (data) { alert(data.msg); },//请求失败的函数  
+                });
+            }
+        }
+    </script>
+</body>
+</html>

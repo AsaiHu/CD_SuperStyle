@@ -1,0 +1,313 @@
+@font-face {
+    font-family: 'Ubuntu-Title';
+    src: url('../font/Ubuntu-Title.ttf');
+}
+#container{
+    width:100%;
+    height:100vh;
+    position:relative;
+    overflow:hidden;
+    transition:all 0.3s ease;
+}
+.index_header{
+    width:100%;
+    position: fixed;
+    left:0;
+    top:0;
+    z-index: 999;
+    top:20px;
+}
+.index_header .header_center {
+    width:1200px;
+    margin:0 auto;
+}
+.menuContainer{
+    float: right;
+}
+.menuContainer ul li{
+    color:#ffffff;
+    font-size:25px;
+    font-family: 'Ubuntu-Title';
+    text-align: left;
+    box-sizing: border-box;
+    padding-left:25px;
+}
+.menu6 li{
+    border-bottom:1px solid #ffffff;
+}
+.header_center .menu{
+    display: block;
+    padding:10px 15px;
+    border:1px solid #ffffff;
+    color:#ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Ubuntu-Title';
+    font-size:24px;
+    margin-top:5px;
+    width:80px;
+    text-align: center;
+    transition:all 0.3s ease;
+}
+.header_center .menu:hover .menu6{
+    display: block
+}
+.header_center .logo {
+    width: 130px;
+    height: 96px;
+    display: block;
+    float: left;
+}
+.header_center .logo {
+    background: url('../images/logos.png') no-repeat;
+    background-size: 100% auto;
+    font-size: 0;
+}
+#container .circle{
+    position:absolute;
+    border-radius:50%;
+    
+}
+#container .img_con{
+    width:1200px;height:100%;
+    margin:0 auto;
+    position:relative;
+    
+}
+#container .cartoon{
+    position:absolute;
+    z-index:-1;
+    transition:all 0.1s ease;
+    /* left:0;
+    top:20%; */
+    width:200px;
+    opacity:0;
+    left:50px;
+    transform-origin:0 50%;
+}
+.point {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #ffffff;
+            box-sizing: border-box;
+            position: absolute;
+            transition: all 0.3s linear;
+            cursor: pointer;
+        }
+
+        #drawing {
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 99;
+            left:200px;
+        }
+        line{
+            transition:all 0.3s linear;
+        }
+        .click_change{
+            position:relative;
+        }
+        .cartoon{
+            position:absolute;
+            left:0;
+            bottom:0;
+            width:400px;
+            height:auto;
+            display: block;
+        }
+#container .s_cartoon{
+    width:220px;
+}
+.cartoon_all{
+    width:550px !important;
+    height:auto !important;
+    bottom:100px !important;
+}
+.cartoon_all img{
+	width:100%;
+	height:auto;
+	display:block;
+}
+.cartoon_all.showImage{
+    left:200px !important;
+}
+.unique p{
+    position: relative;
+    left:-20px;
+}
+.rock p {
+    position: relative;
+    left: 5px;
+}
+.figures p{
+    position: relative;
+    left:15px;
+}
+.click_change .cartoon_right.showImage{
+    left:360px !important;
+    
+}
+.cartoon img{
+	width:100%;
+	display:block;
+}
+.cartoon p{
+	text-align:center;
+	color:#ffffff;
+	font-size:58px;
+	width:100%;
+    position:absolute;
+    font-family: Arial;
+}
+.sunny p{
+	top:140px;
+}
+.unique p{
+	top:20px;
+}
+.penny p{
+	top:-25px;
+}
+.elaine p{
+	top:-30px;
+}
+.rock p{
+	top:28px;
+}
+.figures p{
+	top:-130px;
+}
+.showImage{
+    opacity:1 !important;
+    left:300px !important;
+    z-index:99 !important;
+    transition:all 1s ease !important;
+}
+#container .click_change{
+    width:1200px;
+    height:800px;
+    border-radius:50%;
+    /*border:2px solid #ffffff;*/
+    margin:0 auto;
+    /* margin-top:2%; */
+    /* position:relative; */
+    position:absolute;
+    z-index:99;
+    text-align:center;
+}
+.bg_color{
+    position: absolute;
+    display:block;
+    border-radius:50%;
+    transition:all 0.8s ease;
+}
+
+
+.main_menu {
+    display: flex;
+    justify-content: center;
+}
+
+.main_menu>li {
+    margin: 0 2%;
+}
+
+.main_menu>li a {
+    /* border-bottom: 1px solid #ffffff; */
+}
+
+.main_menu a {
+    text-decoration: none;
+    color: #ffe;
+    text-transform: capitalize;
+    font-family: monospace;
+    display: block;
+    padding: 10px 15px;
+    font-size: 24px;
+    transition: background-color 0.5s ease-in-out;
+
+    font-family: "Ubuntu-Title"
+}
+
+.menu:hover {
+    border-left-color:transparent;
+    border-top-color:transparent;
+    border-right-color:transparent;
+    border-radius: 0;
+    
+}
+
+.drop li {
+    opacity: 0;
+    transform-origin: top center;
+}
+.drop li a {
+    background-color: transparent;
+    padding: 10px 0;
+}
+.drop li a:hover{
+    transition:all 0.2s ease;
+    color:#000000;
+}
+
+
+/*------------- menu6 animation -------------------*/
+.menu6{
+    /* display:none; */
+    width:140px;
+}
+.main_menu li:hover .menu6 li:first-of-type {
+    animation: menu6 0.3s ease-in-out forwards;
+    animation-delay: 0.2s;
+}
+
+.main_menu li:hover .menu6 li:nth-of-type(2) {
+    animation: menu6 0.3s ease-in-out forwards;
+    animation-delay: 0.4s;
+}
+
+.main_menu li:hover .menu6 li:nth-of-type(3) {
+    animation: menu6 0.3s ease-in-out forwards;
+    animation-delay: 0.6s;
+}
+.main_menu li:hover .menu6 li:nth-of-type(4) {
+    animation: menu6 0.3s ease-in-out forwards;
+    animation-delay: 0.8s;
+}
+.main_menu li:hover .menu6 li:last-of-type {
+    animation: menu6 0.3s ease-in-out forwards;
+    animation-delay: 1s;
+}
+
+@keyframes menu6 {
+    0% {
+        opacity: 0;
+        transform: scale(2);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* my button style */
+.white-mode {
+    text-decoration: none;
+    padding: 7px 10px;
+    background-color: #122;
+    border-radius: 3px;
+    color: #fff;
+    transition: 0.35s ease-in-out;
+    position: absolute;
+    left: 15px;
+    bottom: 15px;
+    font-family: sans-serif;
+}
+
+.white-mode:hover {
+    background-color: #fff;
+    color: #122;
+}
