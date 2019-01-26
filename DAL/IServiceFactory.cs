@@ -19,5 +19,8 @@ namespace DAL.Business
         IClassesService ClassesService { get; }
         IArticlesService ArticlesService { get; }
         IConfigsService ConfigsService { get; }
+        ICharacterService CharacterService { get; }
+        IContactService ContactService { get; }
+        IProductService ProductService { get; }
     }
 }

@@ -111,4 +111,38 @@ namespace DAL
         [ForeignColumn(typeof(Modules))]
         public string DisplayName { get; set; }
     }
+
+    [Serializable]
+    [Table("CMS_Character")]
+    [Description("卡通人物表")]
+    public class Character : BusinessEntity
+    {       
+        public string Name { get; set; }
+        [Column("Introduce", Length = Int32.MaxValue)]
+        public string Introduce { get; set; }        
+        public string ExtendMean { get; set; }
+        public string RepresentVal { get; set; }
+        public int Sequence { get; set; }
+    }
+
+    [Serializable]
+    [Table("CMS_Contact")]
+    [Description("联系方式表")]
+    public class Contact : BusinessEntity
+    {
+        public string Telephone { get; set; }
+        public string MobilePhone { get; set; }
+        public string Fax { get; set; }
+        public string Address { get; set; }
+    }
+
+    [Serializable]
+    [Table("CMS_Product")]
+    [Description("产品表")]
+    public class Product : BusinessEntity
+    {
+        public string Name { get; set; }
+        public string ImgUrl { get; set; }
+        public string PublishTime { get; set; }
+    }
 }

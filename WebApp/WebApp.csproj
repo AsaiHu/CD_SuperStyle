@@ -19,6 +19,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -280,6 +282,9 @@
     <Content Include="Images\web\default.png" />
     <Content Include="Pages\CMS\ArticleForm.aspx" />
     <Content Include="Pages\CMS\ConfigForm.aspx" />
+    <Content Include="Pages\CMS\CharacterForm.aspx" />
+    <Content Include="Pages\CMS\ContactForm.aspx" />
+    <Content Include="Pages\CMS\ProductForm.aspx" />
     <Content Include="Pages\FileUpload.html" />
     <Content Include="Global.asax" />
     <Content Include="Pages\Global\ModuleForm.aspx" />
@@ -293,7 +298,10 @@
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\jquery.idcode.js" />
     <Content Include="Scripts\jquery.mousewheel.min.js" />
+    <Content Include="Scripts\Pages\CMS\CharacterForm.js" />
     <Content Include="Scripts\Pages\CMS\ConfigForm.js" />
+    <Content Include="Scripts\Pages\CMS\ContactForm.js" />
+    <Content Include="Scripts\Pages\CMS\ProductForm.js" />
     <Content Include="Scripts\Pagination.js" />
     <Content Include="Scripts\slider.js" />
     <Content Include="Scripts\easyui.1.5.1\jquery.form.js" />
@@ -1051,6 +1059,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\BaseController.cs" />
+    <Compile Include="Api\CMS\ProductController.cs" />
+    <Compile Include="Api\CMS\ContactController.cs" />
+    <Compile Include="Api\CMS\CharacterController.cs" />
     <Compile Include="Api\CMS\ArticleController.cs" />
     <Compile Include="Api\CMS\ClassController.cs" />
     <Compile Include="Api\CMS\ConfigController.cs" />
@@ -1109,6 +1120,27 @@
     </Compile>
     <Compile Include="Pages\CMS\ConfigForm.aspx.designer.cs">
       <DependentUpon>ConfigForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CMS\CharacterForm.aspx.cs">
+      <DependentUpon>CharacterForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CMS\CharacterForm.aspx.designer.cs">
+      <DependentUpon>CharacterForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CMS\ContactForm.aspx.cs">
+      <DependentUpon>ContactForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CMS\ContactForm.aspx.designer.cs">
+      <DependentUpon>ContactForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CMS\ProductForm.aspx.cs">
+      <DependentUpon>ProductForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CMS\ProductForm.aspx.designer.cs">
+      <DependentUpon>ProductForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Global\ModuleForm.aspx.cs">
       <DependentUpon>ModuleForm.aspx</DependentUpon>
