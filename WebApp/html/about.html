@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>About Us</title>
     <link rel="stylesheet" href="./assets/css/initial.css">
-    <link rel="stylesheet" href="./assets/css/stationery.css?v=4">
+    <link rel="stylesheet" href="./assets/css/stationery.css?v=3">
     <link rel="stylesheet" href="./assets/css/about.css?v=3" />
     <script type="text/javascript" src="./assets/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="./assets/js/yi-scroll.js"></script>
@@ -14,51 +14,46 @@
 <body>
     <div class="container c1 _scroll">
         <div class="_panel-box">
-            <div class="head_banner">
-                <div class="head_nav">
-                    <header>
-                        <a href="./index.html">
-                            <i class="logo">承迪文具</i>
+            <header>
+                <a href="./index.html">
+                    <i class="logo">承迪文具</i>
+                </a>
+                <ul class="header_nav">
+                    <li>
+                        <a href="./about.html">
+                            <span>about us</span>
+                            
                         </a>
-                        <ul class="header_nav">
-                            <li>
-                                <a href="./about.html">
-                                    <span>about us</span>
-            
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <span>products</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="./advantage.html">
-                                    <span>advantages</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="./distinguished-cases.html">
-                                    <span>distinguished cases</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="./contact.html">
-                                    <span>contact us</span>
-                                </a>
-                            </li>
-                        </ul>
-                        <div style="clear:both;"></div>
-                    </header>
-                </div>
-                <img src="./assets/images/about_banner2.jpg" alt="" class="banner_img">
-            </div>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>products</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>advantages</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./cartoon-ip.html">
+                            <span>cartoon ip</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./contact.html">
+                            <span>contact us</span>
+                        </a>
+                    </li>
+                </ul>
+                <div style="clear:both;"></div>
+            </header>
 
             
                 <div class="center_container">
-				<!-- <img class="aboutHeadImg" src="assets/images/m_figures.png" />
+				<img class="aboutHeadImg" src="assets/images/m_figures.png" />
 				<div id="aboutHeadText">we are<br /> 
-superstyle</div> -->
+superstyle</div>
                     
                     <div class="about_details">
                         <p class="details_title">cartoon character</p>
@@ -90,23 +85,23 @@ On her 5th birthday, Sunny adopted a little wounded corgi named Nicky from the P
                         </div>
                     <div id="boxAboutUs">
                         <img id="ballon" src="assets/images/balloon.png" />
-                        <div id="boxAboutContent">
+                        <div id="boxAboutContent" isaction="false">
                             <div id="boxAboutText">
                             <p class="details_title">about us</p>
                             <p class="aboutContent">Ningbo Zhenhai Chengdi Stationery Co., Ltd. began her journey in 2001 as a professional stationery manufacturer located in Ningbo, China. Our products cover a board range of stationery and promotional gifts, such as paper notebooks, gift bags, gift boxes and other printing paper products. With over 16 years experience in international stationery business, Chengdi has a gain high reputation by fulfilling a verity of customers’ needs.</p>
                             </div>
                             <table id="boxAboutNumber">
                             <tr>
-                                <td style="height:152px;margin-top:40px;"><span>16</span><span>Years</span></td>
-                                <td><span>200+</span><span>Employee</span></td>
+                                <td style="height:152px;margin-top:40px;"><span><i class="data_num">16</i></span><span>Years</span></td>
+                                <td><span><i class="data_num">200</i>+</span><span>Employee</span></td>
                             </tr>
                             <tr>
-                                <td style="height:152px;margin-top:50px"><span>25</span><span>Categories</span></td>
-                                <td><span>1000+</span><span>Products</span></td>
+                                <td style="height:152px;margin-top:50px"><span><i class="data_num">25</i></span><span>Categories</span></td>
+                                <td><span><i class="data_num">1000</i>+</span><span>Products</span></td>
                             </tr>
                             <tr>
-                                <td style="height:164px;margin-top:60px;"><span>10+</span><span>Certifications</span></td>
-                                <td><span>8000</span><span>Square meters</span></td>
+                                <td style="height:164px;margin-top:60px;"><span><i class="data_num">10</i>+</span><span>Certifications</span></td>
+                                <td><span><i class="data_num">8000</i></span><span>Square meters</span></td>
                             </tr>
                         </table>
                         </div>
@@ -322,6 +317,67 @@ On her 5th birthday, Sunny adopted a little wounded corgi named Nicky from the P
             })
         }
 
+
+        //计数
+         jQuery(function ($) {
+             var dataNum = document.getElementsByClassName('data_num');
+             var dataBox = document.getElementById('boxAboutContent');
+             function CountNum(nums) {
+                 var countTime = 1000;
+                 var initNum = 0;
+                 var setNum = nums.innerText;
+           
+                 if (setNum > 700) {
+                     initNum = 700;
+                 }
+                 if (setNum >= 8000) {
+                     initNum = 7800;
+                 }
+                 var timeCount = setInterval(function () {
+                     initNum += 1;
+                      nums.innerText = initNum;
+                     if (initNum == setNum) {
+                         clearInterval(timeCount);
+                     }
+                 }, countTime / setNum);
+             }
+
+             function actionStart() {
+                 
+                 if (dataBox.getBoundingClientRect().top < document.documentElement.clientHeight && dataBox.getBoundingClientRect().top > 0) {
+
+                     setTimeout(function () {
+                         if (dataBox.getAttribute('isAction') === 'false') {
+                             dataBox.setAttribute('isAction', 'true');
+                             for (var i = 0; i < dataNum.length; i++) {
+                                 new CountNum(dataNum[i]);
+                             }
+
+                         }
+                     }, 350);
+                 }
+             }
+
+             window.onmousewheel = function () {
+
+                 actionStart();
+             };
+             var scrollBar = document.getElementsByClassName('_scroll_bar')[0];
+             scrollBar.onmousedown = function () {
+                 document.onmousemove = function () {
+                     actionStart();
+
+                 };
+             };
+
+             document.onmouseup = function () {
+                 document.onmousemove = function () {
+                     return false;
+                 };
+             };
+
+         })
+        
     </script>
 </body>
 </html>
