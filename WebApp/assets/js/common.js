@@ -1,4 +1,4 @@
-﻿var contactUrl = "../Api/Web/GetContact";
+﻿var contactUrl = "/Api/Web/GetContact";
 
 $(function () {
     $("#head_container").load("./hb.html #head");
