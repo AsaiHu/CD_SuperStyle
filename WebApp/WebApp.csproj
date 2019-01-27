@@ -245,6 +245,7 @@
     <Content Include="html\assets\images\w_arrow.png" />
     <Content Include="html\assets\images\w_arrow_left.png" />
     <Content Include="html\assets\images\w_arrow_right.png" />
+    <Content Include="html\assets\js\common.js" />
     <Content Include="html\assets\js\isShow.js" />
     <Content Include="html\assets\js\jquery-1.11.0.min.js" />
     <Content Include="html\assets\js\showImg.js" />
@@ -254,6 +255,7 @@
     <Content Include="html\assets\js\yi-scroll.js" />
     <Content Include="html\contact.html" />
     <Content Include="html\distinguished-cases.html" />
+    <Content Include="html\hb.html" />
     <Content Include="html\index.html" />
     <Content Include="Images\320.gif" />
     <Content Include="Images\340.gif" />
