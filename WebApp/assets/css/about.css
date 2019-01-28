@@ -366,7 +366,17 @@ body
 		z-index:10;
 		/*color:#fdb409;*/
 	}
+	#boxReadMore span{
+		position:relative;
+		transition:all 0.7s ease;
+		left:0;
+	}
 
+	.more_pro{
+		position:relative;
+		transition:all 0.7s ease;
+		left:0;
+	}
 
 #boxReadMoreLeftBottom ul
 {
@@ -421,7 +431,7 @@ right:25px;
 	z-index:500;
 	left:342px;
 	top:105px;
-	transition:all 0.5s ease;
+	transition:all 1s ease;
 	transform:rotateY(-90deg);
 }
 
@@ -505,13 +515,33 @@ right:25px;
 	width:100%;
 	height:700px;
 	position:relative;
+	overflow: hidden;
 }
 
-	#boxRockAndTree img:nth-of-type(1)
-	{
+	/*#boxRockAndTree img:nth-of-type(1)*/
+	/*{*/
+		/*position:absolute;*/
+		/*top:225px;*/
+		/*right:-145px;*/
+
+	/*}*/
+    .treePng{
 		position:absolute;
+		bottom: 0;
+		left: -160px;
+	}
+	.stone_con{
+		width:100%;
+		height:400px;
+		overflow: hidden;
+	}
+	.stonePng{
+		position:absolute;
+		transition:all 8s linear;
+		/*right:-145px;*/
+		right:-671px;
+		opacity:1;
 		top:225px;
-		right:-145px;
 	}
 
 	#boxRockAndTree img:nth-of-type(2)

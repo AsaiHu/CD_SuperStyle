@@ -89,7 +89,7 @@ superstyle</div>
                             </div>
                             <div id="boxReadMoreLeftBottom">
                                 <p>core value</p>
-                                <a id="aReadMore" href="#">read more -></a>
+                                <a id="aReadMore" href="#"><span>read more -></span></a>
                                 <ul>
                                     <li>DNA of Technical Innovation</li>
                                     <li>Take More Social Responsibilities</li>
@@ -111,7 +111,7 @@ superstyle</div>
                     </div>
                     <div id="boxOurProducts">
                         <p class="details_title">our products</p>
-                        <a href="#">see more products -></a>
+                        <a href="./products.html"><span class="more_pro">see more products -></span></a>
                         <img src="assets/images/about_product1.jpg"  />
                         <img src="assets/images/about_product2.jpg"  />
                         <img src="assets/images/about_product3.jpg"  />
@@ -121,11 +121,13 @@ superstyle</div>
                         <img src="assets/images/team.png" />
                     </div>
                     <div id="boxRockAndTree">
-                        <img src="assets/images/stone.png" />
-                        <img src="assets/images/tree.png" />
-                    </div>
+                        <div class="stone_con">
+                            <img src="assets/images/stone.png" class="stonePng"/>
+                        </div>
 
-                         </div>
+                    </div>
+                    <img src="assets/images/tree.png" class="treePng"/>
+                </div>
           
 
             <footer id="footer_container">
@@ -135,6 +137,7 @@ superstyle</div>
         </div>
     </div>
 
+    <script type="text/javascript" src="./assets/js/isShow.js"></script>
     <script type="text/javascript">
         jQuery(function ($) {
             bindCharacter();
@@ -147,6 +150,59 @@ superstyle</div>
             characterBind();
             bindCharacterHtml(0);
             bindReadMore();
+
+            var postDetails = document.getElementsByClassName("contact_post")[0];
+            var repeatMove = document.getElementById("aReadMore").getElementsByTagName("span")[0];
+            var morePro = document.getElementsByClassName("more_pro")[0];
+            var stone = document.getElementsByClassName("stonePng")[0];
+
+            setInterval(function(){
+                repeatMove.style.cssText += "transition:all 0.7s ease;left:15px;opacity:0;";
+                setTimeout(function(){
+                    repeatMove.style.cssText += "transition:all 0s ease;left:0px;";
+                },700);
+                setTimeout(function(){
+                    repeatMove.style.cssText += "transition:all 0.25s ease;opacity:1;";
+                },750);
+
+                morePro.style.cssText += "transition:all 0.7s ease;left:15px;opacity:0;";
+                setTimeout(function(){
+                    morePro.style.cssText += "transition:all 0s ease;left:0px;";
+                },700);
+                setTimeout(function(){
+                    morePro.style.cssText += "transition:all 0.25s ease;opacity:1;";
+                },750);
+            },1000);
+
+            setInterval(function(){
+                stone.style.cssText += "transition:all 8s linear;right:0px;";
+                setTimeout(function(){
+                    stone.style.cssText += "transition:all 0.4s linear;opacity:0;";
+                },8100);
+                setTimeout(function(){
+                    stone.style.cssText += "transition:all 0s linear;opacity:1;right:-671px";
+                },8600);
+
+            },8700);
+
+
+
+            var t4 = 0;
+            var t5 = document.documentElement.clientHeight;
+
+            function toFlip(){
+                var t3 = document.getElementsByClassName('_panel-box')[0];
+                var flipCon = document.getElementById("boxReadMore");
+                var flip = document.getElementById("imgRockets");
+                t4 = t3.offsetTop;
+                if(flipCon.offsetTop + flip.offsetTop + t4 <= t5 -400){
+                    flip.style.cssText += "transform: rotateY(0deg);";
+                }
+            }
+
+            new Pro_action().srollShow(toFlip);
+
+
         });
 
         var character = [];
@@ -157,7 +213,7 @@ superstyle</div>
                 '<img style="height:377px" src="assets/images/cartoon_penny.png" />',
                 '<img style="height:377px" src="assets/images/cartoon_elaine.png" />',
                 '<img style="height:377px" src="assets/images/cartoon_rock.png" />'
-            ]
+            ];
 
             $.ajax({
                 type: 'POST',
