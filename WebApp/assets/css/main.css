@@ -665,7 +665,12 @@ background: rgba(0,0,0, .55);
   vertical-align: middle; text-align:center;
 }
 .recent-work-wrap a:hover .overlay { background: #8b0061; opacity:0.5; }
-.recent-work-wrap h2{ height:50px; z-index:9999;line-height:40px;}
+.recent-work-wrap h2{
+  height:50px;
+  z-index:9999;
+  line-height:40px;
+  box-sizing: border-box;
+  padding-left: 5%;}
 .content_con .content_con2.recent-work-wrap a:hover .overlay { background:none;}
 .recent-work-wrap .overlay .preview {
   bottom: 0;
