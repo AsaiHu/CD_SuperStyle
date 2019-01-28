@@ -10,43 +10,13 @@
     <link rel="stylesheet" href="./assets/css/about.css?v=3" />
     <script type="text/javascript" src="./assets/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="./assets/js/yi-scroll.js"></script>
+    <script type="text/javascript" src="./assets/js/common.js"></script>
 </head>
 <body>
     <div class="container c1 _scroll">
         <div class="_panel-box">
-            <header>
-                <a href="./index.html">
-                    <i class="logo">承迪文具</i>
-                </a>
-                <ul class="header_nav">
-                    <li>
-                        <a href="./about.html">
-                            <span>about us</span>
-                            
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span>products</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span>advantages</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./cartoon-ip.html">
-                            <span>cartoon ip</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./contact.html">
-                            <span>contact us</span>
-                        </a>
-                    </li>
-                </ul>
-                <div style="clear:both;"></div>
+            <header id="head_container">
+              
             </header>
 
             
@@ -66,13 +36,12 @@ superstyle</div>
                                 <span id="btnCharacter4">rock</span>
                             </div>
                             <div id="boxCartoonBody">
-                                <div id="boxCartoonImg"><img style="height:315px" src="assets/images/cartoon_sunny.png" /></div>
+                                <div id="boxCartoonImg"></div>
                                 <div class="cartoonText">
-                                     <p class="details_title" id="characterName">sunny</p>
-                                    <p class="aboutContent cartoonContent" id="characterIntroduce">Sunny is a lovely girl from London, the capital of U.K.. Her father is the director of a renowned law firm, and her mother is a pediatrician. As the only child in family, Sunny is the apple of her parents’ eyes, as well as a little princess. Since she could remember, she got positive influence from her father’s integrity and her mother’s kindness.<br />
-On her 5th birthday, Sunny adopted a little wounded corgi named Nicky from the Pet Rescue Center with her parents. Under Sunny’s good care, Nicky recovered quickly and became her bodyguard since then. The garden in her family is her little kingdom, as Sunny has a dream—to become an ecologist and make contributions to the nature protecting.</p>
-                                    <p class="aboutContent">Extended Meaning: <label id="extendedManing">creative/persistent/gifted</label></p>
-                                    <p class="aboutContent">Represented Value: <label id="representedValue">creativity/concentration</label></p>
+                                     <p class="details_title" id="characterName"></p>
+                                    <div class="aboutContent cartoonContent" id="characterIntroduce"></div>
+                                    <p class="aboutContent">Extended Meaning: <label id="extendedManing"></label></p>
+                                    <p class="aboutContent">Represented Value: <label id="representedValue"></label></p>
                                 </div>
 
                             </div>
@@ -159,47 +128,8 @@ On her 5th birthday, Sunny adopted a little wounded corgi named Nicky from the P
                          </div>
           
 
-            <footer>
-                <div class="footer_center">
-                    <div class="footer_list">
-                        <p class="list_title">Navigation</p>
-                        <ul>
-                            <li>
-                                <a href="">Home</a>
-                            </li>
-                            <li>
-                                <a href="">About us</a>
-                            </li>
-                            <li>
-                                <a href="">Products</a>
-                            </li>
-                            <li>
-                                <a href="">Advantages</a>
-                            </li>
-                            <li>
-                                <a href="">Cartoon ip</a>
-                            </li>
-                            <li>
-                                <a href="">Contact</a>
-                            </li>
-                        </ul>
-            
-                    </div>
-                    <div class="footer_list">
-                        <p class="list_title">Keep in touch</p>
-                        <ul>
-                            <li>Telephone:</li>
-                            <li>86-574-86587205</li>
-                            <li>Mobile Phone:</li>
-                            <li>15988622199</li>
-                            <li>Fax:</li>
-                            <li>86-574-86573180</li>
-                        </ul>
-            
-                    </div>
-                    <i class="figures"></i>
-                </div>
-                <p class="footer_copy">Copyright &copy; 2018. Ningbo Zhenhai Chengdi Stationery Co., Ltd reserved.</p>
+            <footer id="footer_container">
+              
             </footer>
 
         </div>
@@ -207,15 +137,49 @@ On her 5th birthday, Sunny adopted a little wounded corgi named Nicky from the P
 
     <script type="text/javascript">
         jQuery(function ($) {
+            bindCharacter();
+            
             $("._scroll").yi_scroll();
             $("._scroll-mh").yi_scroll({
                 isMaxHeight: true,
                 isBar: true
             });
             characterBind();
+            bindCharacterHtml(0);
             bindReadMore();
         });
 
+        var character = [];
+        function bindCharacter() {
+            arrImgSrc = [
+                '<img style="height:315px" src="assets/images/cartoon_sunny.png" />',
+                '<img style="height:347px" src="assets/images/cartoon_unique.png" />',
+                '<img style="height:377px" src="assets/images/cartoon_penny.png" />',
+                '<img style="height:377px" src="assets/images/cartoon_elaine.png" />',
+                '<img style="height:377px" src="assets/images/cartoon_rock.png" />'
+            ]
+
+            $.ajax({
+                type: 'POST',
+                data: null,
+                async: false,
+                dataType: 'json',
+                url: "../Api/Web/GetCharacter",
+                success: function (json) {
+                    var data = json.data;
+                    for (var i = 0; i < data.length; i++) {
+                        character[i] = {
+                            name: data[i].Name,
+                            imgSrc: arrImgSrc[i],
+                            introduce: data[i].Introduce,
+                            meaning: data[i].ExtendMean,
+                            value: data[i].RepresentVal
+                        }
+                    }
+                }
+            })
+        }
+/*
         var character = [
             {
                 name: "sunny",
@@ -254,7 +218,7 @@ On her 5th birthday, Sunny adopted a little wounded corgi named Nicky from the P
             }
 
         ]
-
+*/
         var count = 0;
 
         function characterBind() {

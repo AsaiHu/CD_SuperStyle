@@ -149,6 +149,57 @@ namespace WebApp.Api
         }
 
         [AllowAnonymous]
+        public JsonResult GetCharacter()
+        {
+            CustomJsonResult json = new CustomJsonResult();
+            json.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+            json.ContentType = "text/plain";
+
+            try
+            {
+                List<Character> body = ServiceFactory.Factory.CharacterService.SearchSection(null, new SectionSet()
+                {
+                    Orders = new Sorting[]{
+                            new Sorting(){
+                                Direction=ListSortDirection.Ascending,
+                                PropertyName="Sequence"
+                            }
+                        },
+                    SectionSize = 5,
+                    StartIndex = 0
+                });
+                json.Data = JsonUtil.GetSuccessForObject(body);
+            }
+            catch (Exception ex)
+            {
+                json.Data = JsonUtil.GetFailForString(ex.Message);
+
+            }
+            return json;
+        }
+
+        [AllowAnonymous]
+        public JsonResult GetContact()
+        {
+            CustomJsonResult json = new CustomJsonResult();
+            json.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+            json.ContentType = "text/plain";
+
+            try
+            {
+                Contact body = ServiceFactory.Factory.ContactService.SearchOne(null);
+                json.Data = JsonUtil.GetSuccessForObject(body);
+            }
+            catch (Exception ex)
+            {
+                json.Data = JsonUtil.GetFailForString(ex.Message);
+
+            }
+            return json;
+        }
+
+
+        [AllowAnonymous]
         public JsonResult GetConfig(int ModuleID)
         {
             CustomJsonResult json = new CustomJsonResult();

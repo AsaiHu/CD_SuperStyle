@@ -79,6 +79,9 @@
     <Compile Include="Attribute\ServicePermissionAttribute.cs" />
     <Compile Include="Attribute\TransactionAttribute.cs" />
     <Compile Include="CustomException.cs" />
+    <Compile Include="DAO\CMS\ProductDAO.cs" />
+    <Compile Include="DAO\CMS\ContactDAO.cs" />
+    <Compile Include="DAO\CMS\CharacterDAO.cs" />
     <Compile Include="DAO\CMS\ArticlesDAO.cs" />
     <Compile Include="DAO\CMS\ClassesDAO.cs" />
     <Compile Include="DAO\CMS\ConfigsDAO.cs" />
@@ -102,6 +105,9 @@
     <Compile Include="ServiceDescription.cs" />
     <Compile Include="ServiceFactory.cs" />
     <Compile Include="ServiceInterceptor.cs" />
+    <Compile Include="Service\CMS\ProductService.cs" />
+    <Compile Include="Service\CMS\ContactService.cs" />
+    <Compile Include="Service\CMS\CharacterService.cs" />
     <Compile Include="Service\CMS\ArticlesService.cs" />
     <Compile Include="Service\CMS\ClassesService.cs" />
     <Compile Include="Service\CMS\ConfigsService.cs" />
