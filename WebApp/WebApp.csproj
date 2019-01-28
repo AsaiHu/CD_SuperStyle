@@ -301,6 +301,7 @@
     <Content Include="contact.html" />
     <Content Include="distinguished-cases.html" />
     <Content Include="hb.html" />
+    <Content Include="Images\bg_login.png" />
     <Content Include="index.html" />
     <Content Include="Images\320.gif" />
     <Content Include="Images\340.gif" />
