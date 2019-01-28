@@ -33,7 +33,7 @@ namespace WebApp.Api
                 {
                     IProductService service = ServiceFactory.Factory.ProductService;
                     ConditionSet condition = new ConditionSet();
-                  
+                    condition.Add(new SimpleCondition("ClassCode", classCode));
                     int totalCount = service.Count(condition);
                     List<Product> list = service.SearchSection(condition, ((int)pageNumber - 1) * (int)pageSize, (int)pageSize, "PublishTime", System.ComponentModel.ListSortDirection.Descending);
                     json.Data = JsonUtil.GetSuccessForObject(list, totalCount);
@@ -112,9 +112,24 @@ namespace WebApp.Api
                 if (old_entity == null)
                 {
                     Product Product = new Product();
+                    Product.ClassCode = entity.ClassCode;
                     Product.Name = entity.Name;
                     Product.ImgUrl = entity.ImgUrl;
-                    Product.PublishTime = entity.PublishTime;
+                    try
+                    {
+                        if (entity.PublishTime == null)
+                        {
+                            Product.PublishTime = DateTime.Now;
+                        }
+                        else
+                        {
+                            Product.PublishTime = Convert.ToDateTime(entity.PublishTime);
+                        }
+                    }
+                    catch
+                    {
+                        Product.PublishTime = DateTime.Now;
+                    }
                     Product.CreateIP = Network.ClientIP;
                     Product.CreateTime = DateTime.Now;
                     Product.Creator = Security.CurrentUser.UserName;
@@ -128,9 +143,24 @@ namespace WebApp.Api
                 }
                 else
                 {
+                    old_entity.ClassCode = entity.ClassCode;
                     old_entity.Name = entity.Name;
                     old_entity.ImgUrl = entity.ImgUrl;
-                    old_entity.PublishTime = entity.PublishTime;
+                    try
+                    {
+                        if (entity.PublishTime == null)
+                        {
+                            old_entity.PublishTime = DateTime.Now;
+                        }
+                        else
+                        {
+                            old_entity.PublishTime = Convert.ToDateTime(entity.PublishTime);
+                        }
+                    }
+                    catch
+                    {
+                        old_entity.PublishTime = DateTime.Now;
+                    }
                     old_entity.UpdateIP = Network.ClientIP;
                     old_entity.UpdateTime = DateTime.Now;
                     old_entity.Updater = Security.CurrentUser.UserName;

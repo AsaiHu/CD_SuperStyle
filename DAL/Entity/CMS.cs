@@ -141,8 +141,9 @@ namespace DAL
     [Description("产品表")]
     public class Product : BusinessEntity
     {
+        public string ClassCode { get; set; }
         public string Name { get; set; }
         public string ImgUrl { get; set; }
-        public string PublishTime { get; set; }
+        public DateTime? PublishTime { get; set; }
     }
 }

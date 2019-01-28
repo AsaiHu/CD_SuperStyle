@@ -126,6 +126,56 @@ namespace WebApp.Api
             return json;
         }
 
+        [AllowAnonymous]
+        public JsonResult SearchProduct(string classCode, int? pageNumber, int? pageSize, string sortMode)
+        {
+            CustomJsonResult json = new CustomJsonResult();
+            json.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+            json.ContentType = "text/plain";
+
+            try
+            {
+                IProductService service = ServiceFactory.Factory.ProductService;
+                ConditionSet condition = new ConditionSet();
+                if (classCode != null && classCode != "")
+                {                  
+                    condition.Add(new SimpleCondition("ClassCode", classCode));
+                }
+                if (pageNumber != null && pageSize != null)
+                {
+                    int totalCount = service.Count(condition);
+                    List<Product> list = service.SearchSection(condition, new SectionSet()
+                    {
+                        Orders = new Sorting[]{
+                            new Sorting(){
+                                Direction=sortMode.ToUpper()=="DESC"?ListSortDirection.Descending:ListSortDirection.Ascending,
+                                PropertyName="PublishTime"
+                            }
+                        },
+                        SectionSize = (int)pageSize,
+                        StartIndex = ((int)pageNumber - 1) * (int)pageSize
+                    });
+                    json.Data = JsonUtil.GetSuccessForObject(list, totalCount);
+                }
+                else
+                {
+                    List<Product> list = service.SearchWithOrder(condition, new Sorting[]{
+                        new Sorting(){
+                            Direction=sortMode.ToUpper()=="DESC"?ListSortDirection.Descending:ListSortDirection.Ascending,
+                            PropertyName="PublishTime"
+                        }
+                    });
+                    json.Data = JsonUtil.GetSuccessForObject(list);
+                }
+            }
+            catch (Exception ex)
+            {
+                json.Data = JsonUtil.GetFailForString(ex.Message);
+
+            }
+            return json;
+        }
+
 
 
         [AllowAnonymous]

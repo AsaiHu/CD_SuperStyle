@@ -10,7 +10,7 @@ $(function () {
 });
 
 function query_data() {
-    var url = url_query + "&pageNumber=" + page_number + "&pageSize=" + page_size;
+    var url = url_query + "&classCode=" + ClassCode+"&pageNumber=" + page_number + "&pageSize=" + page_size;
     var data = "keyword=" + $("#input_keyword").val();
 
     $.ajax({
@@ -91,6 +91,7 @@ function save_data() {
     var src = $("#src").val();
 
     var entity = new Object();
+    entity.ClassCode = ClassCode;
     entity.ID = id;
     entity.Name = valName;
     entity.PublishTime = valPublishTime;

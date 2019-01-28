@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Home</title>
+    <title>Product</title>
 
     <!-- core CSS -->
     <link rel="stylesheet" href="./assets/css/initial.css">
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./Styles/pagination.css" rel="stylesheet" />
     <link href="./assets/css/font-awesome.min.css" rel="stylesheet">
     <link href="./assets/css/animate.min.css" rel="stylesheet">
     <link href="./assets/css/prettyPhoto.css" rel="stylesheet">
@@ -20,7 +21,14 @@
 
     <script type="text/javascript" src="./assets/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="./assets/js/yi-scroll.js"></script>
+    <script type="text/javascript" src="./Scripts/Pagination.js"></script>
     <script type="text/javascript" src="./assets/js/common.js"></script>
+    <script>
+        $(function () {
+            countProduct();
+            bindProduct();
+        })
+    </script>
 </head>
 <!--/head-->
 
@@ -31,119 +39,24 @@
 <div class="container c1 _scroll">
     <div class="_panel-box">
  
-                <header id="header_container"></header>
+                <header id="head_container"></header>
             
-        <div class="content_con">
+        <div class="content_container">
             <section id="recent-works">
                 <ul class="portfolio-filter text-center">
-                    <li><a class="btn btn-default" href="#" data-filter=".bootstrap">Stationery Set</a></li>
-                    <li><a class="btn btn-default" href="#" data-filter=".html">Sketchbook</a></li>
-                    <li><a class="btn btn-default" href="#" data-filter=".wordpress">Notebook</a></li>
-                    <li><a class="btn btn-default" href="#" data-filter=".wordpress">Pencil Case</a></li>
-                    <li><a class="btn btn-default" href="#" data-filter=".wordpress">Bag</a></li>
-                    <li><a class="btn btn-default" href="#" data-filter=".wordpress">Accessories</a></li>
+                    <li><a class="btn btn-default" href="#" data-filter=".bootstrap" id="click001">Stationery Set</a></li>
+                    <li><a class="btn btn-default" href="#" data-filter=".html" id="click002">Sketchbook</a></li>
+                    <li><a class="btn btn-default" href="#" data-filter=".wordpress" id="click003">Notebook</a></li>
+                    <li><a class="btn btn-default" href="#" data-filter=".wordpress" id="click004">Pencil Case</a></li>
+                    <li><a class="btn btn-default" href="#" data-filter=".wordpress" id="click005">Bag</a></li>
+                    <li><a class="btn btn-default" href="#" data-filter=".wordpress" id="click006">Accessories</a></li>
                 </ul>
                 <!--/#portfolio-filter-->
 
-                <div class="clearfix screenshots animated" data-animation="fadeInUp" data-animation-delay="1000">
-                    <div class="col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <a href="javascript:;">
-                                <img class="img-responsive" src="./assets/images/portfolio/recent/item1.png" alt="">
-                                <h2 style="position:relative;z-index:999;">Hair Dryer<span>RCY-92</span></h2>
-                                <div class="overlay">
-                                    <i class="fa fa-search-plus shadow_search"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <a href="javascript:;">
-                                <img class="img-responsive" src="./assets/images/portfolio/recent/item2.png" alt="">
-                                <h2 style="position:relative;z-index:999;">Hair Dryer<span>RCY-92</span></h2>
-                                <div class="overlay">
-                                    <i class="fa fa-search-plus shadow_search"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <a href="javascript:;">
-                                <img class="img-responsive" src="./assets/images/portfolio/recent/item3.png" alt="">
-                                <h2 style="position:relative;z-index:999;">Hair Dryer<span>RCY-92</span></h2>
-                                <div class="overlay">
-                                    <i class="fa fa-search-plus shadow_search"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <a href="javascript:;">
-                                <img class="img-responsive" src="./assets/images/portfolio/recent/item4.png" alt="">
-                                <h2 style="position:relative;z-index:999;">Hair Dryer<span>RCY-92</span></h2>
-                                <div class="overlay">
-                                    <i class="fa fa-search-plus shadow_search"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <a href="javascript:;">
-                                <img class="img-responsive" src="./assets/images/portfolio/recent/item5.png" alt="">
-                                <h2 style="position:relative;z-index:999;">Hair Dryer<span>RCY-92</span></h2>
-                                <div class="overlay">
-                                    <i class="fa fa-search-plus shadow_search"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <a href="javascript:;">
-                                <img class="img-responsive" src="./assets/images/portfolio/recent/item6.png" alt="">
-                                <h2 style="position:relative;z-index:999;">Hair Dryer<span>RCY-92</span></h2>
-                                <div class="overlay">
-                                    <i class="fa fa-search-plus shadow_search"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <a href="javascript:;">
-                                <img class="img-responsive" src="./assets/images/portfolio/recent/item7.png" alt="">
-                                <h2 style="position:relative;z-index:999;">Hair Dryer<span>RCY-92</span></h2>
-                                <div class="overlay">
-                                    <i class="fa fa-search-plus shadow_search"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <a href="javascript:;">
-                                <img class="img-responsive" src="./assets/images/portfolio/recent/item8.png" alt="">
-                                <h2 style="position:relative;z-index:999;">Hair Dryer<span>RCY-92</span></h2>
-                                <div class="overlay">
-                                    <i class="fa fa-search-plus shadow_search"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                <div id="product-container" class="clearfix screenshots animated" data-animation="fadeInUp" data-animation-delay="1000">
+                   </div>
                 <!--/.row-->
-
+               <div id="product-pagination"></div>
             </section>
             <!--/#recent-works-->
         </div>
@@ -183,6 +96,145 @@
         }
     }
 </script>
+    <script>
+      
+
+        var ClassCode = "001";
+        var totalNumber = 0;
+        var pageNumber = 1;
+        var pageSize = 8;
+        var carry = false;
+        var productHtml = "";
+
+        for (var i = 1; i <= 6; i++) {
+            document.getElementById("click00" + i).onclick = (function (k) {
+                return function () {
+                    ClassCode = "00" + k;
+                    pageNumber = 1;
+                    countProduct();
+                    bindProduct();
+                   
+                }
+            })(i);
+        }
+
+        function countProduct() {
+            $.ajax({
+                type: 'POST',
+                dataType: 'json',
+                url: "/Api/Web/SearchProduct?ClassCode=" + ClassCode + "&pageNumber=1&pageSize=1&sortMode=ASC",
+                data: null,
+                beforeSend: null,
+                async: false,
+                success: function (json) {
+                    var code = json.code;
+                    if (code == 0) {
+                        totalNumber = json.total_count;
+                    }
+                }
+            });
+        }
+
+
+        function bindProduct() {
+            $('#product-pagination').pagination({
+                dataSource: "/Api/Web/SearchProduct?ClassCode=" + ClassCode + "&pageNumber=" + pageNumber + "&pageSize=" + pageSize + "&sortMode=DESC",
+                locator: 'data',
+                pageNumber: pageNumber,
+                pageSize: pageSize,
+                pageRange: 1,
+                totalNumber: totalNumber,
+                autoHidePrevious: true,
+                autoHideNext: true,
+                prevText: "<",
+                nextText: ">",
+                callback: function (productData, pagination) {
+                    if (carry) {
+                        pageNumber = pagination.pageNumber;
+                        bindProduct();
+                        carry = false;
+                    }
+                    else {
+                        carry = true;
+                        productHtml = "";
+                        for (var i = 0; i < productData.length; i++) {
+                            productHtml += '<div class="col-xs-12 col-sm-4 col-md-3">'
+                                + '  <div class="recent-work-wrap">'
+                                + '     <a href="javascript:;">'
+                                + '          <img class="img-responsive" src=' + productData[i].ImgUrl + ' alt="">'
+                                + '              <h2 style="position:relative;z-index:999;">' + productData[i].Name + '</h2>'
+                                + '             <div class="overlay">'
+                                + '                 <i class="fa fa-search-plus shadow_search"></i>'
+                                + '            </div>'
+                                + '</a></div></div >';
+
+
+                        }
+                       // document.getElementById('product-container').innerHTML = "";
+                        document.getElementById('product-container').innerHTML = productHtml;
+                        var pagMove = $("#recent-works .paginationjs").width() * 0.5;
+                        $("#recent-works .paginationjs").css("left", "calc(50% - " + pagMove + "px)")
+                    }
+
+                }
+            });
+        }
+    </script>
+    <style>
+        #recent-works {
+            position:relative;
+        }
+
+        #recent-works .paginationjs {
+            position: absolute;
+           margin-top:30px;
+            height: 50px;
+            text-align: center;
+            border: none;
+        }
+
+        .paginationjs .paginationjs-pages {
+        }
+
+
+        #recent-works .paginationjs-prev a {
+            color: #ffed15;
+        }
+
+        #recent-works .paginationjs-next a {
+            color: #ffed15;
+        }
+
+        #recent-works .paginationjs-pages li {
+            border: none;
+        }
+
+        .paginationjs .paginationjs-pages li.active > a {
+            background-color: rgba(0,0,0,0);
+            color: #fff;
+        }
+
+        .paginationjs .paginationjs-pages li > a {
+            background-color: rgba(0,0,0,0);
+            color: #ffed15;
+            font-size:20px;
+            margin-left: 15px;
+            margin-bottom: 15px;
+        }
+
+            .paginationjs .paginationjs-pages li > a:hover {
+                background-color: #ffed15;
+                color: #f86b96;
+            }
+        #recent-works .paginationjs-prev a:hover {
+            color: #f86b96;
+        }
+
+        #recent-works .paginationjs-next a:hover {
+            color: #f86b96;
+        }
+
+    </style>
 </body>
 
 </html>

@@ -20,7 +20,7 @@
                 ">
                         <thead>
                             <tr>
-                                <th data-options="field:'Product',width:400">产品名
+                                <th data-options="field:'Name',width:400">产品名
                                 </th>
                                 <th data-options="field:'PublishTime',width:400">发表时间
                                 </th>
