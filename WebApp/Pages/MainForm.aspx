@@ -109,7 +109,7 @@
     </div>
     <div region="south" split="false" style="height: 25px; background: #D2E0F2;">
         <div class="footer">
-            苏州威博世网络科技有限公司-版权所有
+           
         </div>
     </div>
     <div region="west" split="true" title="导航菜单" style="width: 180px;" id="west">
