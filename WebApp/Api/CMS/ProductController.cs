@@ -114,6 +114,7 @@ namespace WebApp.Api
                     Product Product = new Product();
                     Product.ClassCode = entity.ClassCode;
                     Product.Name = entity.Name;
+                    Product.Parameter = entity.Parameter;
                     Product.ImgUrl = entity.ImgUrl;
                     try
                     {
@@ -144,6 +145,7 @@ namespace WebApp.Api
                 else
                 {
                     old_entity.ClassCode = entity.ClassCode;
+                    old_entity.Parameter = entity.Parameter;
                     old_entity.Name = entity.Name;
                     old_entity.ImgUrl = entity.ImgUrl;
                     try

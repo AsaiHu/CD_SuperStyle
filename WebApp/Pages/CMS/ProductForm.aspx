@@ -20,9 +20,11 @@
                 ">
                         <thead>
                             <tr>
-                                <th data-options="field:'Name',width:400">产品名
+                                <th data-options="field:'Name',width:250">产品名
                                 </th>
-                                <th data-options="field:'PublishTime',width:400">发表时间
+                                 <th data-options="field:'Parameter',width:250">产品参数
+                                </th>
+                                <th data-options="field:'PublishTime',width:300">发表时间
                                 </th>
 
                             </tr>
@@ -47,6 +49,10 @@
                     <div style="margin: 10px 0px 5px 10px;" id="boxTitle">
                         <input class="easyui-textbox" label="产品名:" labelposition="left" style="width: 95%; height: 27px;"
                             id="valName" data-options="required:true" />
+                    </div>
+                    <div style="margin: 0px 0px 5px 10px;" id="boxParameter">
+                        <input class="easyui-textbox" label="产品参数:" labelposition="left" style="width: 95%; height: 27px;"
+                            id="valParameter" />
                     </div>
                    
                     <div style="margin: 0px 0px 5px 10px;" id="boxPublishTime">

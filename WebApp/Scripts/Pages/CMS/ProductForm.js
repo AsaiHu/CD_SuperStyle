@@ -64,6 +64,7 @@ function set_data() {
             if (code == success_code) {
                 var data = json.data;
                 $("#valName").textbox("setValue", data.Name);
+                $("#valParameter").textbox("setValue", data.Parameter);
                 $("#valPublishTime").datetimebox("setValue", data.PublishTime);
                 $("#src").val(data.ImgUrl);
                 $("#img").attr("src", data.ImgUrl);
@@ -87,6 +88,7 @@ function set_data() {
 function save_data() {
     if (!$('#valName').textbox("isValid")) return false;
     var valName = $('#valName').textbox("getValue");
+    var valParameter = $('#valParameter').textbox("getValue");
     var valPublishTime = $('#valPublishTime').datebox("getValue");
     var src = $("#src").val();
 
@@ -94,6 +96,7 @@ function save_data() {
     entity.ClassCode = ClassCode;
     entity.ID = id;
     entity.Name = valName;
+    entity.Parameter = valParameter;
     entity.PublishTime = valPublishTime;
     entity.ImgUrl = src;
     var url = url_save;
@@ -178,9 +181,10 @@ function delete_data() {
 function reset() {
     id = "-1";
 
-    config_window("w", "新建文章信息", "icon-page-add");
+    config_window("w", "新建产品信息", "icon-page-add");
 
     $("#valName").textbox("setValue", "");
+    $("#valParameter").textbox("setValue", "");
     $("#valPublishTime").datetimebox("setValue", "");
     $("#src").val("");
     $("#img").attr("src", "../../Images/web/default.png");

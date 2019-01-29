@@ -142,6 +142,7 @@ namespace DAL
     public class Product : BusinessEntity
     {
         public string ClassCode { get; set; }
+        public string Parameter { get; set; }
         public string Name { get; set; }
         public string ImgUrl { get; set; }
         public DateTime? PublishTime { get; set; }
