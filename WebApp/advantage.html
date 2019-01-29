@@ -39,29 +39,29 @@
                             <div class="reason">
                                 <img src="./assets/images/why_choose1.png" alt="">
                                 <div class="reason_text">
-                                    <p>The company has gain high reputation from various customers and tones of successful</p>
-                                    <a href="">View More</a>
+                                    <p class="text_height">The company has gain high reputation from various customers and tones of successful cases though 16 years operation experience. We are good at Master-level product recommendation, which help our clients realize their minimum inventory.</p>
+                                    <a href="javascript:;">View More</a>
                                 </div>
                             </div>
                             <div class="reason">
                                 <img src="./assets/images/why_choose2.png" alt="">
                                 <div class="reason_text">
-                                    <p>We are remarkable in supply chain management and innovation. The R&D team pay constant</p>
-                                    <a href="">View More</a>
+                                    <p class="text_height">We are remarkable in supply chain management and innovation. The R&D team pay constant attention to technological changes and market needs in the past decade, Nowadays, they are able to launch over 220 new products every year.</p>
+                                    <a href="javascript:;">View More</a>
                                 </div>
                             </div>
                             <div class="reason">
                                 <img src="./assets/images/why_choose3.png" alt="">
                                 <div class="reason_text">
-                                    <p>As one of the most reliable manufactures in China, Chengdi has accumulated unique</p>
-                                    <a href="">View More</a>
+                                    <p class="text_height">As one of the most reliable manufactures in China, Chengdi has accumulated unique technological advantages such as 20 years palette printing experience and modified equipment. These are the foundation of our success.</p>
+                                    <a href="javascript:;">View More</a>
                                 </div>
                             </div>
                             <div class="reason">
                                 <img src="./assets/images/why_choose4.png" alt="">
                                 <div class="reason_text">
-                                    <p>With a friendly & knowledgeable service team, the response time is 50% shorter than the</p>
-                                    <a href="">View More</a>
+                                    <p class="text_height">With a friendly & knowledgeable service team, the response time is 50% shorter than the average level. Meanwhile, chengdi has professional marketing & design department, offering clients with customized senior level marketing materials and other support.</p>
+                                    <a href="javascript:;">View More</a>
                                 </div>
                             </div>
                         </div>
@@ -219,6 +219,16 @@
                 }
             }
             new Pro_action().srollShow(showBlock);
+
+            var reasonText = document.getElementsByClassName("reason_text");
+            for(var a = 0; a < reasonText.length; a++){
+                var more = reasonText[a].getElementsByTagName("a")[0];
+                more.index = a;
+                more.addEventListener("click",function(){
+                    reasonText[this.index].getElementsByClassName("text_height")[0].style.cssText += "height:auto;";
+                }.bind(more),false);
+
+            }
         });
     </script>
 </body>

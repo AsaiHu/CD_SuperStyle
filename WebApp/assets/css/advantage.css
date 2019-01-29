@@ -155,6 +155,10 @@
 	transition:all 1s ease-out;
 	opacity:0;
 }
+.text_height{
+	height:60px;
+	overflow:hidden;
+}
 	
 
 			
