@@ -1430,12 +1430,12 @@ ul.social_icons li  a i{
 }
 
 .portfolio-filter > li {
-  width:16%; display:inline-block; margin:5px 0;
+  width:25%; display:inline-block; margin:5px 0;
 }
 
 .portfolio-filter > li a {
   background: none repeat scroll 0 0 #FFFFFF;
-  font-size: 14px;
+  font-size: 25px;
   font-weight: 400; display:block;
   text-transform: uppercase; padding:6px 10px; margin:0 1%; 
   transition: all 0.9s ease 0s;
