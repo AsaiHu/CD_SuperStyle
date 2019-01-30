@@ -67,7 +67,7 @@
     </div>
 
    
-    <div id="w" class="easyui-window" title="人物信息" data-options="modal:true,closed:false,iconCls:'',minimizable:false" style="width: 780px; height: 750px; padding: 5px; overflow: hidden;">
+    <div id="w" class="easyui-window" title="人物信息" data-options="modal:true,closed:false,iconCls:'',minimizable:false" style="width: 780px; height: 500px; padding: 5px; overflow: hidden;">
         <div class="easyui-layout" data-options="fit:true">
             <div style="padding: 5px;" data-options="region:'center'">
 
